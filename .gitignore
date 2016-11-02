@@ -1,0 +1,6 @@
+**/data/*.bz2
+**/data/*.mbox
+**/data/**
+*.DS_Store
+
+**/.ipynb_checkpoints/**
