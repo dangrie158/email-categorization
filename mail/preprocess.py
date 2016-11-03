@@ -122,6 +122,8 @@ if __name__ == '__main__':
     filter_address = sys.argv[3] if len(sys.argv) >= 4 else None
     filter_inverted = False
 
+    print("preprocessing mailbox dump {}".format(in_file))
+
     if filter_address is not None:
         filter_inverted = filter_address[0] == '!'
         if filter_inverted:
@@ -187,3 +189,4 @@ if __name__ == '__main__':
     os.remove(temp_file_path)
 
     print('done.')
+    print('')
