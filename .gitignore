@@ -2,5 +2,5 @@
 **/data/*.mbox
 **/data/**
 *.DS_Store
-
+news/corpus/**
 **/.ipynb_checkpoints/**
