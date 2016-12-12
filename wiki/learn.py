@@ -23,13 +23,17 @@ if __name__ == '__main__':
     # check and process input arguments
 
     if len(sys.argv) < 3:
-        print globals()['__doc__'] % locals()
+        print(__doc__ % sys.argv[0].split("/")[-1])
         sys.exit(1)
     inp, outp = sys.argv[1:3]
 
     # create a phrase detector to learn phrases
-    bigram_transformer = Phrases(LineSentence(inp))
-    model = Word2Vec(bigram_transformer, size=400, window=5, min_count=5, workers=multiprocessing.cpu_count())
+    sentence_iterator = LineSentence(inp)
+
+    # phrase detection is already done in the preprocess stage
+    # bigram_transformer = Phrases(sentence_iterator)
+    # hs=1: use hierarchical softmax so we can use the availabe score function of the model
+    model = Word2Vec(sentence_iterator, size=400, window=5, min_count=5, workers=multiprocessing.cpu_count(), hs=1)
 
     # trim unneeded model memory = use (much) less RAM
     # doing this results in a model that is not further trainable so don't do it here
