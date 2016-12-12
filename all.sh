@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
+#download the wiki corpus
+#curl -o wiki/data/wiki.de.xml.bz2 https://dumps.wikimedia.org/dewiki/latest/dewiki-latest-pages-articles.xml.bz2
+
 #preproces the wiki corpus
 #python wiki/preprocess.py wiki/data/wiki.de.xml.bz2 wiki/data/wiki.de.txt
 
@@ -23,23 +26,19 @@ set -e
 #python wiki/learn.py mail/data/hdm.txt mail/data/hdm.word2vec.model
 #python wiki/learn.py mail/data/non-hdm.txt mail/data/non-hdm.word2vec.model
 
-# start local ongod to port foward before ssh before starting this
+# start local mongod or port foward before ssh before starting the preprocessor
 # ssh -L 27017:localhost:27017 root@nupo-artworks.de
 
-python news/preprocess.py ../Wiki/news/corpus/ corpus
+#python news/preprocess.py ../Wiki/news/corpus/ corpus
 
-python mail/continueLearn.py wiki/data/wiki.de.word2vec.model news/corpus/corpusSonstiges.txt news/data/corpusSonstiges+base.word2vec.model
-python mail/continueLearn.py wiki/data/wiki.de.word2vec.model news/corpus/corpusAktuell.txt news/data/corpusAktuell+base.word2vec.model
-python mail/continueLearn.py wiki/data/wiki.de.word2vec.model news/corpus/corpusLifestyle.txt news/data/corpusLifestyle+base.word2vec.model
-python mail/continueLearn.py wiki/data/wiki.de.word2vec.model news/corpus/corpusWirtschaft.txt news/data/corpusWirtschaft+base.word2vec.model
-python mail/continueLearn.py wiki/data/wiki.de.word2vec.model news/corpus/corpusFinanzen.txt news/data/corpusFinanzen+base.word2vec.model
-python mail/continueLearn.py wiki/data/wiki.de.word2vec.model news/corpus/corpusAusland.txt news/data/corpusAusland+base.word2vec.model
-python mail/continueLearn.py wiki/data/wiki.de.word2vec.model news/corpus/corpusIgnore.txt news/data/corpusIgnore+base.word2vec.model
-python mail/continueLearn.py wiki/data/wiki.de.word2vec.model news/corpus/corpusLokal.txt news/data/corpusLokal+base.word2vec.model
-python mail/continueLearn.py wiki/data/wiki.de.word2vec.model news/corpus/corpusPolitik.txt news/data/corpusPolitik+base.word2vec.model
-python mail/continueLearn.py wiki/data/wiki.de.word2vec.model news/corpus/corpusSport.txt news/data/corpusSport+base.word2vec.model
-python mail/continueLearn.py wiki/data/wiki.de.word2vec.model news/corpus/corpusTechnologie.txt news/data/corpusTechnologie+base.word2vec.model
-python mail/continueLearn.py wiki/data/wiki.de.word2vec.model news/corpus/corpusKultur.txt news/data/corpusKultur+base.word2vec.model
+categories=( "Sonstiges" "Aktuell" "Lifestyle" "Wirtschaft" "Finanzen" "Ausland" "Lokal" "Politik" "Sport" "Technologie" "Kultur")
+
+for i in "${categories[@]}"
+do
+  #split the corpus into 2 sets with a ratio of 70% training / 30% validation
+  python mail/generateSets.py news/corpus/corpus$i.txt news/data/corpus$i.training.txt news/data/corpus$i.validation.txt 30 0
+  python mail/continueLearn.py wiki/data/wiki.de.word2vec.model news/data/corpus$i.training.txt news/data/corpus$i+base.word2vec.model
+done
 
 #python wiki/learn.py news/data/news.txt news/data/news.word2vec.model
 #python mail/continueLearn.py wiki/data/wiki.de.word2vec.model news/data/news.txt news/data/news+base.word2vec.model
