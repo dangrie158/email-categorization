@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 """
 Usage %s input_file out_training_file out_validation_file validation_samples [seed]
