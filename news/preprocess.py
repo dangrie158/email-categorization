@@ -158,7 +158,7 @@ if __name__ == '__main__':
         print('saving {} corpus as {}'.format(category_name, file_name))
         category_file = codecs.open(file_name, 'w', 'utf-8')
         for text in category:
-            category_file.write(norm_text + '\n')
+            category_file.write(text + '\n')
 
         category_file.close()
 
