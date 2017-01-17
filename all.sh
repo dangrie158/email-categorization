@@ -9,6 +9,7 @@ set -e
 
 #learn the base model based on the wikipedia corpus
 #python wiki/learn.py wiki/data/wiki.de.txt wiki/data/wiki.de.word2vec.model
+#python wiki/learn_200dim.py wiki/data/wiki.de.txt wiki/data/wiki.de.200dim.word2vec.model
 
 # create the corpora for all hdm and non-hdm mails
 #python mail/preprocess.py mail/data/all.mbox mail/data/hdm.txt hdm-stuttgart.de
@@ -36,9 +37,11 @@ categories=( "Sonstiges" "Aktuell" "Lifestyle" "Wirtschaft" "Finanzen" "Ausland"
 for i in "${categories[@]}"
 do
   #split the corpus into 2 sets with a ratio of 70% training / 30% validation
-  python mail/generateSets.py news/corpus/corpus$i.txt news/data/corpus$i.training.txt news/data/corpus$i.validation.txt 30 0
-  python mail/continueLearn.py wiki/data/wiki.de.word2vec.model news/data/corpus$i.training.txt news/data/corpus$i+base.word2vec.model
+  #python mail/generateSets.py news/corpus/corpus$i.txt news/data/corpus$i.training.txt news/data/corpus$i.validation.txt 30 0
+  #python mail/continueLearn.py wiki/data/wiki.de.word2vec.model news/data/corpus$i.training.txt news/data/corpus$i+base.word2vec.model
+  python mail/continueLearn.py wiki/data/wiki.de.200dim.word2vec.model news/data/corpus$i.training.txt news/data/corpus$i+base.200dim.word2vec.model
 done
+
 
 #python wiki/learn.py news/data/news.txt news/data/news.word2vec.model
 #python mail/continueLearn.py wiki/data/wiki.de.word2vec.model news/data/news.txt news/data/news+base.word2vec.model
