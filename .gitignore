@@ -3,4 +3,6 @@
 **/data/**
 *.DS_Store
 news/corpus/**
+**/news/checkpoints/**
+**/news/logs/**
 **/.ipynb_checkpoints/**
