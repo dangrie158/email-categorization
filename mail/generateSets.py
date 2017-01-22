@@ -55,9 +55,9 @@ if __name__ == '__main__':
 
     for num, line in enumerate(input_file):
         if num in validation_lines:
-            validation_out_file.write(line + '\n')
+            validation_out_file.write(line)
         else:
-            train_out_file.write(line + '\n')
+            train_out_file.write(line)
 
 
     train_out_file.close()
