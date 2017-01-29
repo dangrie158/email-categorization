@@ -59,15 +59,15 @@ category_extractors = {
 # to fewer predefined categories. This list probably needs regular maintenance
 
 category_mapping = {
-    'Politik': ['politik_konjunktur', 'politik_', 'Nachrichten_Politik', 'politik_deutschland', 'politik', 'innenpolitik', 'video_politik'],
+    'Politik': ['politik_konjunktur', 'politischesBuch', 'politik_', 'Nachrichten_Politik', 'politik_deutschland', 'politik', 'innenpolitik', 'video_politik'],
     'Ausland': ['politik_ausland', 'ausland', 'internationale_politik', 'politik_international'],
-    'Aktuell': ['thema', 'eilmeldung', 'termine', 'pressemitteilung', 'news'],
-    'Technologie': ['technik_gadgets', 'netzwelt', 'wissenschaft', 'Nachrichten_Netzwelt', 'technik_medizin', 'Wissen_Technik', 'IT', 'Wissen_Job', 'Nachrichten_Auto', 'technologie', 'auto', 'digitales', 'technik', 'Nachrichten_Wissenschaft', 'digital', 'technik_zukunftdergesundheit'],
+    'Aktuell': ['newsticker', 'thema', 'eilmeldung', 'termine', 'pressemitteilung', 'news'],
+    'Technologie': ['video_technik', 'Wissen_Mensch', 'spiegelwissen', 'technik_gadgets', 'netzwelt', 'wissenschaft', 'Nachrichten_Netzwelt', 'technik_medizin', 'Wissen_Technik', 'IT', 'Wissen_Job', 'Nachrichten_Auto', 'technologie', 'auto', 'digitales', 'technik', 'Nachrichten_Wissenschaft', 'digital', 'technik_zukunftdergesundheit'],
     'Kultur': ['kultur', 'Wissen_Kultur', 'Wissen_History', 'theorie_geschichte', 'Wissen_d', 'wissen'],
     'Wirtschaft': ['video_unternehmen', 'unternehmen_mittelstand', 'wirtschaft_soziales', 'wirtschaft', 'unternehmen', 'unternehmen_management', 'karriere', 'unternehmen_dienstleister', 'unternehmen_industrie', 'Nachrichten_Wirtschaft'],
     'Finanzen': ['finanzen_immobilien', 'finanzen_anlagestrategie', 'finanzen', 'finanzen_vorsorge', 'Wissen_Finanzen', 'wirtschaft_boerse_', 'finanzen_maerkte', 'immobilien', 'video_finanzen'],
     'Sport': ['Sport_tennis', 'Sport_Fussball', 'Sport_mehr', 'Sport_d', 'Sport_us', 'Sport_formel1', 'sport'],
-    'Sonstiges': ['Nachrichten_n24', 'campus', 'studium', 'feature', 'magazin', 'panorama', 'positionen', 'Nachrichten_Panorama', 'einestages', 'imBild', 'vorabmeldungen', 'feuilleton', 'debatte', 'features', 'vermischtes', 'aktion', 'panorama', 'hintergrund', 'mobilitaet', 'freitext', 'video_panorama', '2016'],
+    'Sonstiges': ['dev', 'spiegel', '2017', '21', 'allgemein', 'schlusslicht', '25', 'videos', 'incoming', 'fernsehen', 'Nachrichten_n24', 'campus', 'studium', 'feature', 'magazin', 'panorama', 'positionen', 'Nachrichten_Panorama', 'einestages', 'imBild', 'vorabmeldungen', 'feuilleton', 'debatte', 'features', 'vermischtes', 'aktion', 'panorama', 'hintergrund', 'mobilitaet', 'freitext', 'video_panorama', '2016'],
     'Ignore': ['newsletter', 'my', 'icon', 'videoblog', 'anzeigen', 'fotos', 'Teletext', 'images', 'quiztool', 'ardimport', 'leserbriefe', 'kolumnen_oliver', 'sptv', 'focustv', '22', 'kommentar', '32', '28', 'multimedia', 'video', 'kolumnen_Prof', 'fotostrecke'],
     'Lokal': ['kommunalpolitik', 'nrw', 'hamburg', 'deutschland', 'inland', 'regionales', 'regional'],
     'Lifestyle': ['shopping', 'stil', 'entdecken', 'lebenundlernen', 'reisen', 'Nachrichten_Verbraucher', 'familie', 'reise', 'leben', 'ratgeber', 'erfolg', 'Wissen_Gesundheit', 'Wissen_Reise', 'leute', 'gesundheit', 'spiele', 'gesellschaft']

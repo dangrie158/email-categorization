@@ -1,20 +1,20 @@
 ## ~20000 samples:
 
 ### Categorization
-mult_nb:        0.464458
-mult_nb_tfidf:  0.346288
-bern_nb:        370786
-bern_nb_tfidf:  0.370786
-svc:            0.455572
-svc_tfidf:      0.480070
-rf:             0.463710
-rf_tfidf:       0.461219
+mult_nb:        0.718059
+mult_nb_tfidf:  0.461945
+bern_nb:        0.586969
+bern_nb_tfidf:  0.586969
+svc:            0.586969
+svc_tfidf:      0.767951
+rf:             0.713363
+rf_tfidf:       0.709255
 
                 400 dimentional (9.37 GB)       200 dimensional (4.9GB)
 
-argmax(LL):     0.645740707807                   0.658723101547
-word2doc:       0.46478990201                    0.464457731274
-CNN:            -                                0.2759 @ [3,4,5]       0.2602 @ [12]
+argmax(LL):     0.7091796875                     0.7201171875
+word2doc:       0.679123459206                   0.681080023479
+CNN:            -                                -
 
 ### Clustering:
 MiniBatchKMeans:
@@ -57,4 +57,18 @@ Birch:
 	completeness:	0.248528220592                   0.266110719439
 	v-measure:	  0.252289734062                   0.272456333634
 
-~40000 samples:
+## ~40000 samples:
+### Categorization
+mult_nb         0.732004
+mult_nb_tfidf   0.492396
+bern_nb         0.625887
+bern_nb_tfidf   0.625887
+svc             0.743156
+svc_tfidf       0.784049
+rf              0.720514
+rf_tfidf        0.718824
+
+                200 dimensional (4.9GB)
+argmax(LL):     0.79810938555
+word2doc:       0.701926326462
+CNN:            -
